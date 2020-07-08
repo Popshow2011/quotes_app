@@ -5,7 +5,40 @@ export interface INameByISIN {
 }
 
 export interface IState {
-  quotes: IBondsData[];
+  name: INameByISIN[];
+}
+
+export interface IQuotes {
+  cardTitle: string;
+  card: IBondsData | {};
+}
+
+type TPrices = {
+  week: {
+    dates: Array<string>;
+    values: Array<number>;
+  };
+  month: {
+    dates: Array<string>;
+    values: Array<number>;
+  };
+  quarter: {
+    dates: Array<string>;
+    values: Array<number>;
+  };
+  year: {
+    dates: Array<string>;
+    values: Array<number>;
+  };
+  max: {
+    dates: Array<string>;
+    values: Array<number>;
+  };
+};
+
+export interface IAction {
+  type: string;
+  payload: IBondsData | INameByISIN;
 }
 
 export interface IBondsData {
@@ -19,70 +52,7 @@ export interface IBondsData {
   sector: string;
   code: string;
   till: string;
-  price: {
-    week: {
-      dates: Array<string>;
-      values: Array<number>;
-    };
-    month: {
-      dates: Array<string>;
-      values: Array<number>;
-    };
-    quarter: {
-      dates: Array<string>;
-      values: Array<number>;
-    };
-    year: {
-      dates: Array<string>;
-      values: Array<number>;
-    };
-    max: {
-      dates: Array<string>;
-      values: Array<number>;
-    };
-  };
-  spread: {
-    week: {
-      dates: Array<string>;
-      values: Array<number>;
-    };
-    month: {
-      dates: Array<string>;
-      values: Array<number>;
-    };
-    quarter: {
-      dates: Array<string>;
-      values: Array<number>;
-    };
-    year: {
-      dates: Array<string>;
-      values: Array<number>;
-    };
-    max: {
-      dates: Array<string>;
-      values: Array<number>;
-    };
-  };
-  yield: {
-    week: {
-      dates: Array<string>;
-      values: Array<number>;
-    };
-    month: {
-      dates: Array<string>;
-      values: Array<number>;
-    };
-    quarter: {
-      dates: Array<string>;
-      values: Array<number>;
-    };
-    year: {
-      dates: Array<string>;
-      values: Array<number>;
-    };
-    max: {
-      dates: Array<string>;
-      values: Array<number>;
-    };
-  };
+  price: TPrices;
+  spread: TPrices;
+  yield: TPrices;
 }
