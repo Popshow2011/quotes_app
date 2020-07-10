@@ -10,7 +10,7 @@ export interface IState {
 
 export interface IQuotes {
   cardTitle: string;
-  card: IBondsData | {};
+  card?: IBondsData;
 }
 
 type TPrices = {

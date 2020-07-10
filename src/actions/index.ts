@@ -8,18 +8,21 @@ export const addName = (name: INameByISIN) => {
   };
 };
 
-export const addQuotes = (data: IBondsData) => {
+export const addQuotes = (item: IBondsData) => {
   return {
     type: QuoteTypes.QUOTE_ADD,
-    payload: data,
+    payload: item,
   };
 };
-
-export type TAddQuotes = ReturnType<typeof addQuotes | typeof changeTitle>;
 
 export const changeTitle = (data: string) => {
   return {
     type: QuoteTypes.QUOTE_CHANGE,
     payload: data,
+
   };
 };
+
+export type TAddQuotes = ReturnType<typeof addQuotes | typeof changeTitle>;
+
+
